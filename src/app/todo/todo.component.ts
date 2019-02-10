@@ -1,23 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  transition,
-  style,
-  animate
-} from '@angular/animations';
+import { fadeToggle } from '../animations/fade-animation';
+
 
 @Component({
   selector: 'todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   animations: [
-    trigger('fadeToggle', [
-      state('void', style({ opacity: 0 })),
-      transition(':enter, :leave', [animate('1s')])
-    ])
-    // added aliases for element entering the dom a
-    // leaving the dom. void=>* is :enter and *=>void is :leave"
+    fadeToggle
   ]
 })
 export class TodoComponent implements OnInit {
