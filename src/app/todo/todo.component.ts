@@ -14,8 +14,7 @@ import {
   animations: [
     trigger('fadeToggle', [
       state('void', style({ opacity: 0 })),
-      transition('void => *', [animate('1s')]),
-      transition('* => void', [animate('1s')])
+      transition('void => *, * => void', [animate('1s')])
     ])
   ]
 })
