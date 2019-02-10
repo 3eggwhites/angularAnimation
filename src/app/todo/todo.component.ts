@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { fadeToggle } from '../animations/fade-animation';
+import { slideToggle } from '../animations/slide-toggle';
 
 
 @Component({
@@ -7,7 +8,8 @@ import { fadeToggle } from '../animations/fade-animation';
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   animations: [
-    fadeToggle
+    fadeToggle,
+    slideToggle
   ]
 })
 export class TodoComponent implements OnInit {
