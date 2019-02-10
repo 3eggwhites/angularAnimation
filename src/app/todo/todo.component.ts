@@ -14,8 +14,10 @@ import {
   animations: [
     trigger('fadeToggle', [
       state('void', style({ opacity: 0 })),
-      transition('void <=> *', [animate('1s')])
+      transition(':enter, :leave', [animate('1s')])
     ])
+    // added aliases for element entering the dom a
+    // leaving the dom. void=>* is :enter and *=>void is :leave"
   ]
 })
 export class TodoComponent implements OnInit {
