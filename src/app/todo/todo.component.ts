@@ -1,28 +1,13 @@
-import { fadeInAnimation } from './../animations/fade-animation';
-import { bounceOutLeftAnimation } from './../animations/slide-toggle';
 import { Component, OnInit } from '@angular/core';
-import { fadeToggle } from '../animations/fade-animation';
-import { slideToggle } from '../animations/slide-toggle';
-import {
-  trigger,
-  state,
-  transition,
-  style,
-  animate,
-  keyframes,
-  useAnimation
-} from '@angular/animations';
-import { customTodoAnimation } from '../animations/todo-animation';
+import { todosAnimation, todoElementAnimation } from '../animations/todo-animation';
 
 @Component({
   selector: 'todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
-  animations: [
-    customTodoAnimation
-  ]
+  animations: [todosAnimation, todoElementAnimation]
 })
-export class TodoComponent implements OnInit {
+export class TodoComponent {
   todoList: string[];
 
   constructor() {
@@ -45,5 +30,11 @@ export class TodoComponent implements OnInit {
     this.todoList.splice(index, 1);
   }
 
-  ngOnInit() {}
+  todoAnimationStart($event) {
+    console.log($event);
+  }
+
+  todoAnimationDone($event) {
+    console.log($event);
+  }
 }
