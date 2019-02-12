@@ -6,7 +6,8 @@ import {
   animate,
   query,
   animateChild,
-  group
+  group,
+  stagger
 } from '@angular/animations';
 import { fadeInAnimation } from './fade-animation';
 import { bounceOutLeftAnimation } from './slide-toggle';
@@ -27,7 +28,7 @@ export let todosAnimation = trigger('todosAnimation', [
   transition(':enter', [
     group([
       query('h1', [style({ transform: 'translateY(-20px)' }), animate('1s')]),
-      query('@todoElementAnimation', animateChild())
+      query('@todoElementAnimation', stagger(150, animateChild()))
     ])
   ])
 ]);
