@@ -7,8 +7,7 @@
 />
 <ul class="list-group">
   <button
-    @fadeToggle 
-    @slideToggle 
+    @todoAnimation 
     *ngFor="let item of todoList"
     class="list-group-item list-group-item-action"
     (click)="removeItem(item)"

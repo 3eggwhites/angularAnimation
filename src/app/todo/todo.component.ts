@@ -1,15 +1,32 @@
+import { bounceOutLeftAnimation } from './../animations/slide-toggle';
 import { Component, OnInit } from '@angular/core';
 import { fadeToggle } from '../animations/fade-animation';
 import { slideToggle } from '../animations/slide-toggle';
-
+import {
+  trigger,
+  state,
+  transition,
+  style,
+  animate,
+  keyframes,
+  useAnimation
+} from '@angular/animations';
 
 @Component({
   selector: 'todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   animations: [
-    fadeToggle,
-    slideToggle
+    trigger('todoAnimation', [
+      transition(':enter', [
+      style({ opacity: 0 }),
+      animate('1s')]),
+      transition(':leave', [
+        style({ backgroundColor: 'red' }),
+        animate('0.5s'),
+        useAnimation(bounceOutLeftAnimation)
+      ])
+    ])
   ]
 })
 export class TodoComponent implements OnInit {
