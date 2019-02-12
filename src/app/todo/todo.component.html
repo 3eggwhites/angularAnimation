@@ -1,19 +1,19 @@
 <div @todosAnimation>
   <h1>TODO List</h1>
-<input
-  type="text"
-  class="form-control"
-  #input
-  (keyup.enter)="addToList(input)"
-/>
-<ul class="list-group">
-  <button
-    @todoElementAnimation
-    *ngFor="let item of todoList"
-    class="list-group-item list-group-item-action"
-    (click)="removeItem(item)"
-  >
-    {{ item }}
-  </button>
-</ul>
+  <input
+    type="text"
+    class="form-control"
+    #input
+    (keyup.enter)="addToList(input)"
+  />
+  <ul class="list-group">
+    <button
+      @todoElementAnimation
+      *ngFor="let item of todoList"
+      class="list-group-item list-group-item-action"
+      (click)="removeItem(item)"
+    >
+      {{ item }}
+    </button>
+  </ul>
 </div>

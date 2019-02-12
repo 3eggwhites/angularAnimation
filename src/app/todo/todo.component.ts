@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { todosAnimation, todoElementAnimation } from '../animations/todo-animation';
+import {
+  todosAnimation,
+  todoElementAnimation
+} from '../animations/todo-animation';
 
 @Component({
   selector: 'todo',
