@@ -3,11 +3,22 @@ import {
   state,
   transition,
   style,
-  animate
+  animate,
+  keyframes
 } from '@angular/animations';
 
 export let slideToggle = trigger('slideToggle', [
-  state('void', style({ transform: 'translateX(-20px)' })),
-  transition(':enter, :leave', [animate('0.5s')])
-  // adding this comment ina  new branch
+  transition(':leave', [animate('0.5s 0.1s ease-in',
+   keyframes([
+    style({
+      offset: .2,
+      opacity: 1,
+      transform: 'translateX(20px)' }),
+      style({
+        offset: 1,
+        opacity: 0,
+        transform: 'translateX(-100%)' })
+  ])
+  )]),
+  transition(':enter', [animate('0.5s 0.1s ease-out')])
 ]);
