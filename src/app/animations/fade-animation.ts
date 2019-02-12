@@ -8,9 +8,25 @@ import {
   useAnimation
 } from '@angular/animations';
 
-export let fadeInAnimation = animation([style({ opacity: 0 }), animate('1s')]);
+export let fadeInAnimation = animation(
+  [style({ opacity: 0 }), animate('{{ duration }} {{ easing}}')],
+  {
+    params: {
+      duration: '1s',
+      easing: 'ease-out'
+    }
+  }
+);
 
-export let fadeOutAnimation = animation([animate('1s', style({ opacity: 1 }))]);
+export let fadeOutAnimation = animation(
+  [animate('{{ duration }} {{ easing }}', style({ opacity: 1 }))],
+  {
+    params: {
+      duration: '1s',
+      easing: 'ease-in'
+    }
+  }
+);
 
 export let fadeToggle = trigger('fadeToggle', [
   transition(':enter', useAnimation(fadeInAnimation)),

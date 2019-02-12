@@ -1,3 +1,4 @@
+import { fadeInAnimation } from './../animations/fade-animation';
 import { bounceOutLeftAnimation } from './../animations/slide-toggle';
 import { Component, OnInit } from '@angular/core';
 import { fadeToggle } from '../animations/fade-animation';
@@ -18,9 +19,10 @@ import {
   styleUrls: ['./todo.component.css'],
   animations: [
     trigger('todoAnimation', [
-      transition(':enter', [
-      style({ opacity: 0 }),
-      animate('1s')]),
+      transition(
+        ':enter',
+        useAnimation(fadeInAnimation, { params: { duration: '0.5s' } })
+      ),
       transition(':leave', [
         style({ backgroundColor: 'red' }),
         animate('0.5s'),
