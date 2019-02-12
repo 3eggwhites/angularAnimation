@@ -12,23 +12,14 @@ import {
   keyframes,
   useAnimation
 } from '@angular/animations';
+import { customTodoAnimation } from '../animations/todo-animation';
 
 @Component({
   selector: 'todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.css'],
   animations: [
-    trigger('todoAnimation', [
-      transition(
-        ':enter',
-        useAnimation(fadeInAnimation, { params: { duration: '0.5s' } })
-      ),
-      transition(':leave', [
-        style({ backgroundColor: 'red' }),
-        animate('0.5s'),
-        useAnimation(bounceOutLeftAnimation)
-      ])
-    ])
+    customTodoAnimation
   ]
 })
 export class TodoComponent implements OnInit {
