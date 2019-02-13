@@ -1,0 +1,25 @@
+<div class="zippy-border">
+  <div
+    [ngClass]="{
+      'header-expanded': isExpanded,
+      'header-collapsed': !isExpanded
+    }"
+  >
+    Sample Heading
+    <span class="icon-holder" (click)="accordianAction()">
+      <i
+        class="fas fa-lg"
+        [ngClass]="{
+          'fa-chevron-down': !isExpanded,
+          'fa-chevron-up': isExpanded
+        }"
+      ></i>
+    </span>
+  </div>
+  <div
+    [@zippyToggle]="isExpanded ? 'expanded' : 'collapsed'"
+    class="zippy-body"
+  >
+    <ng-content></ng-content>
+  </div>
+</div>
